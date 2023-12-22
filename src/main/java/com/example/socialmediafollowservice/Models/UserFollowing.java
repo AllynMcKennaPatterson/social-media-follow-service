@@ -17,6 +17,16 @@ public class UserFollowing {
     @Id
     String id;
     @NotBlank(message = "Username cannot be blank")
-    String username;
-    ArrayList<String> following;
+    String myUsername;
+    String userToFollow;
+    ArrayList<String> followList;
+
+    public void setFollowList(ArrayList<String> followList) {
+        this.followList = followList;
+    }
+
+    public String getUserToFollow() {
+        return userToFollow;
+    }
+
 }
