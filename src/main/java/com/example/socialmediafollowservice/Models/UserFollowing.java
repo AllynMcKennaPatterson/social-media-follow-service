@@ -1,5 +1,6 @@
 package com.example.socialmediafollowservice.Models;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 public class UserFollowing {
     @Id
     String id;
+    @NotBlank(message = "Username cannot be blank")
     String username;
     ArrayList<String> following;
 }
