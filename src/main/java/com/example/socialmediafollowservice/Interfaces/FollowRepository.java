@@ -5,5 +5,4 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface FollowRepository extends MongoRepository<UserFollowing, String> {
 
-    Boolean existsByUsername(String username);
 }
