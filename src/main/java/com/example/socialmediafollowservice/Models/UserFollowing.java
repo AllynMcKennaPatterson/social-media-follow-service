@@ -21,12 +21,9 @@ public class UserFollowing {
     String userToFollow;
     ArrayList<String> followList;
 
-    public void setFollowList(ArrayList<String> followList) {
+    public UserFollowing(String id, String myUsername, ArrayList<String> followList) {
+        this.id = id;
+        this.myUsername = myUsername;
         this.followList = followList;
     }
-
-    public String getUserToFollow() {
-        return userToFollow;
-    }
-
 }
