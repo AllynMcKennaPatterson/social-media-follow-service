@@ -2,6 +2,7 @@ package com.example.socialmediafollowservice.Controllers;
 
 import com.example.socialmediafollowservice.Clients.EmailServiceClient;
 import com.example.socialmediafollowservice.Interfaces.FollowRepository;
+import com.example.socialmediafollowservice.Models.MailStructure;
 import com.example.socialmediafollowservice.Models.UserFollowing;
 import com.example.socialmediafollowservice.Services.FollowService;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -29,11 +30,11 @@ public class FollowController {
     Map<String, Boolean> addFollowToList(@RequestBody UserFollowing userFollowing){
         Map<String,Boolean> response = new HashMap<>();
         boolean followSuccess = followService.addFollow(userFollowing);
-        if(followSuccess == true){
-
+        if(followSuccess){
+            MailStructure mailStructure = new MailStructure("New Follower", "You are now following"+ userFollowing.getUserToFollow());
+            emailServiceClient.sendMail(userFollowing.getEmail(),mailStructure);
         }
         response.put("Follow user", followSuccess);
-
         return response;
     }
 
