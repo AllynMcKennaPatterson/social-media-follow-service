@@ -26,4 +26,9 @@ public class UserFollowing {
         this.myUsername = myUsername;
         this.followList = followList;
     }
+
+    public UserFollowing(String username, ArrayList<String> emptyFollowList) {
+        this.myUsername = username;
+        this.followList = emptyFollowList;
+    }
 }
