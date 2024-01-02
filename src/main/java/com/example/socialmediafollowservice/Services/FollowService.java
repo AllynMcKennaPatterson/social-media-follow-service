@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -56,6 +57,12 @@ public class FollowService {
             return false;
         }
 
+    }
+
+    public List<String> getFollowList(String myUsername){
+        UserFollowing userData;
+        userData =  followRepository.getUserFollowingByMyUsername(myUsername);
+        return userData.getFollowList();
     }
 
 }
