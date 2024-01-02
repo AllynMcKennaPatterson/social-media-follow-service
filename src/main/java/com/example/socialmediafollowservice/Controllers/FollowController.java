@@ -5,11 +5,10 @@ import com.example.socialmediafollowservice.Models.UserFollowing;
 import com.example.socialmediafollowservice.Services.FollowService;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bson.json.JsonObject;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -35,5 +34,8 @@ public class FollowController {
         return response;
     }
 
-
+    @GetMapping("/getFollowList/{myUsername}")
+    List<String> getFollowList(@PathVariable String myUsername){
+        return followService.getFollowList(myUsername);
+    }
 }
